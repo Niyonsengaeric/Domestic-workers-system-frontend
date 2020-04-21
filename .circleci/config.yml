@@ -1,11 +1,9 @@
-version: 2.1
-orbs:
-  coveralls: coveralls/coveralls@1.0.4
+version: 2
 jobs:
   build:
     working_directory: ~/Domestic-workers-system-frontend
     docker:
-    - image: circleci/node:12.16.1
+    - image: circleci/node:12.14.1
     steps:
     - checkout
     - run:
@@ -20,7 +18,9 @@ jobs:
         key: dependency-cache-{{ checksum "package-lock.json" }}
         paths:
         - ./node_modules
-    - run: npm run test:react
+    - run:
+        name: test
+        command: npm test:react
     # - run:
     #     name: code-coverage
     #     command: ./node_modules/.bin/nyc report --reporter=text-lcov
