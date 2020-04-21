@@ -3,7 +3,7 @@ jobs:
   build:
     working_directory: ~/Domestic-workers-system-frontend
     docker:
-    - image: circleci/node:12.14.1
+    - image: circleci/node:12.16.1
     steps:
     - checkout
     - run:
@@ -20,7 +20,7 @@ jobs:
         - ./node_modules
     - run:
         name: test
-        command: npm test:react
+        command: npm test
     # - run:
     #     name: code-coverage
     #     command: ./node_modules/.bin/nyc report --reporter=text-lcov
